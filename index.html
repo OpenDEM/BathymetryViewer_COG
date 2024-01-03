@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="">
+  <meta name="keywords" content="open data, bathymetry, terrain models, surface models">
+  <meta name="author" content="contact@opendemdata.info">
+  <title>BathymetryViewer COG</title>
+
+  <style>
+    .helpimage {
+      right: 5px;
+      top: 5px;
+      background-color: unset !important;
+      text-align: left;
+      margin: 0 auto;
+
+    }
+
+    .help {
+      display: none;
+      z-index: 9999;
+      position: absolute;
+      background-color: white;
+      padding: 10px;
+      width: 590px;
+      height: 300px;
+      top: 10px;
+      left: 50px;
+      overflow: auto;
+      border: solid;
+    }
+
+    .ol-popup-bottom {
+      background-color: white;
+      -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #cccccc;
+      bottom: -12px;
+      left: -50px;
+      min-width: 400px;
+      z-index: 99999;
+      position: relative;
+    }
+
+    .ol-popup-bottom:after,
+    .ol-popup-bottom:before {
+      top: -4%;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid white;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .ol-popup-bottom:after {
+      border-top-color: white;
+      border-width: 10px;
+      left: 48px;
+      margin-left: -10px;
+    }
+
+    .ol-popup-bottom:before {
+      border-top-color: #cccccc;
+      border-width: 11px;
+      left: 48px;
+      margin-left: -11px;
+    }
+
+    .ol-popup {
+      position: absolute;
+      background-color: white;
+      -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #cccccc;
+      bottom: 12px;
+      left: -50px;
+      min-width: 400px;
+      z-index: 99999;
+    }
+
+    .ol-popup:after,
+    .ol-popup:before {
+      top: 100%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .ol-popup:after {
+      border-top-color: white;
+      border-width: 10px;
+      left: 48px;
+      margin-left: -10px;
+    }
+
+    .ol-popup:before {
+      border-top-color: #cccccc;
+      border-width: 11px;
+      left: 48px;
+      margin-left: -11px;
+    }
+
+
+    .ol-popup-closer {
+      text-decoration: none;
+      position: absolute;
+      top: 2px;
+      right: 8px;
+    }
+
+    .ol-popup-closer:after {
+      content: "✖";
+    }
+
+    #logo {
+      position: absolute;
+      bottom: 40px;
+      right: 30px;
+    }
+
+    #helpMap {
+      position: absolute;
+      bottom: 34px;
+      left: 5px;
+      background-color: white;
+      z-index: 9999;
+    }
+
+    .ma5 {
+      margin: 5px;
+    }
+
+    .ol-scale-line {
+      bottom: 90px !important;
+    }
+
+    .ol-attribution {
+      bottom: 5px !important;
+      right: auto !important;
+      left: 7px !important;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+  </div>
+  <img id="logo" src="images/logo_bathymetrysearcher.png" alt="Logo OpenBathymetrySearcher">
+  <div id="helpMap">
+    <h4 class="ma5">Click in the map to get derived depth classes & coordinates.</h4>
+    <h4 class="ma5">Contours at scaleline &#60;= 5km, resolution GEBCO 2021 15 arc-seconds</h4>
+  </div>
+
+  <div id="help" class="help" style="display: none;">
+    <h2>Bathymetry Viewer based on Cloud Optimized Tiff (COG) and Vector Tiles </h2>
+    <p>Derived product from the <a target="_parent"
+        href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/">GEBCO 2021
+        Grid</a>, made with <a target="_parent" href="https://www.naturalearthdata.com/">NaturalEarth</a>.</p>
+
+    <p>Check out <a target="_parent" href="https://www.opendem.info/download_bathymetry.html"> Download Bathymetry
+        site</a> for the background information on processing.</p>
+
+    <h3> To get rid of backend components (database, mapservers, web application containers) modern geodata formats like
+      <a target="_parent" href="https://en.wikipedia.org/wiki/Vector_tiles"> vector tiles</a> and
+      <a target="_parent" href="https://www.cogeo.org/">cloud optimized tiffs (cog) </a> were tested.
+    </h3>
+    <h3>Check out <a target="_parent"
+        href="https://github.com/OpenDEM/BathymetryViewer_COG">github.com/OpenDEM/BathymetryViewer_COG </a> for more
+      information about the results.</h3>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
