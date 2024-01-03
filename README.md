@@ -1,6 +1,6 @@
 # OpenLayers with Vector Tiles and Cloud Optimized Tiffs (COG)
 
-## [www.opendem.info/bathymetryviewer_cog.html](https://www.opendem.info/bathymetryviewer_cog.html)
+**[www.opendem.info/bathymetryviewer_cog.html](https://www.opendem.info/bathymetryviewer_cog.html)**
 
 To get rid of backend components (database, mapservers, web application containers) modern geodata formats like Vector Tiles and Cloud Optimized Tiffs (COG) were tested.
 
