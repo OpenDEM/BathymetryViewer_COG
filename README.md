@@ -14,7 +14,7 @@ The COG used has one band with a colour palette. Unfortunately, this was not use
 
 The use of style expression with 'match' leads to artefacts at the edges of the classification (image below).
 
-![expression match](images/match_renderer.png)
+![expression match](images/match_renderer.PNG)
 
 Figure 1: Rendering the image with a match expression
 
