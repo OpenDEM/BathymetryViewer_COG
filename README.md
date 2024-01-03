@@ -20,7 +20,7 @@ Figure 1: Rendering the image with a match expression
 
 This is why the style expression 'interpolate' was used here.
 
-![expression interpolate](images/interpolate.png)
+![expression interpolate](images/interpolate.PNG)
 
 Figure 2: Rendering the image with a interpolate expression
 
@@ -37,7 +37,7 @@ Vector tiles were made with [GDAL](https://gdal.org). Have a look at the [OpenDE
 At the higher zoom levels vector tiles were used with labels along the lines.
 Unfortunately, the labels are not rendered in all regions.
 
-![vector tile labels](images/vt_labels.png)
+![vector tile labels](images/vt_labels.PNG)
 
 Only level 11 was processed for the contour lines to save hard disc space.
 However, the geometries also match the display in the WMS in the larger zoom levels.
